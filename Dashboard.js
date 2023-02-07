@@ -1,57 +1,84 @@
-import React from 'react'
-import Navbar from './Navbar'
-import { NavLink } from 'react-router-dom'
-
-
+import { NavLink } from "react-router-dom";
+import { FaEdit, FaEye, FaPlusCircle, FaTrash, FaUser } from "react-icons/fa";
+import "./dashboard_css.css";
+import Button from "@material-ui/core/Button";
 const Dashboard = () => {
   return (
     <>
-    <nav>
-        <NavLink to='/'><p>Authoring Interface</p></NavLink>
+      <nav>
+        <NavLink to="/">
+          <p>Authoring Interface</p>
+        </NavLink>
         <div>
-            <ul id="navbar">            
-                <li><NavLink to="/usrgenerate">Generate USR</NavLink></li>
-                <li><NavLink to="/dashboard">Username : user1</NavLink></li>
-            </ul>
+          <ul id="navbar">
+            <li>
+              <NavLink to="/dashboard">
+                <FaUser></FaUser> Username : user1
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/logout">Logout </NavLink>
+            </li>
+          </ul>
         </div>
-    </nav>
-    <div class="cards">
-        <div id="card">
-            5 Discourses created
-        </div>
-        <div id="card">
-            25 USRs Generated
-        </div>
-        <div id="card">
-            2 Discourses Approved
-        </div>
-    </div>
+      </nav>
 
-    <div class="dis_table">
-        <table>
+      <div class="components">
+        <div class="cards">
+          <div id="card">5 Discourses created</div>
+          <div id="card">25 USRs Generated</div>
+          <div id="card">2 Discourses Approved</div>
+          <div id="card">
+            <a href="http://localhost:3000/usrgenerate">
+              <FaPlusCircle size="50px" color="black"></FaPlusCircle>
+            </a>
+          </div>
+        </div>
+
+        <div class="discourse_but">
+          <Button variant="contained" href="http://localhost:9999/dash_out">
+            See Discourses
+          </Button>
+        </div>
+
+        <div class="dis_table">
+          <table>
             <tr>
-                <th>S.No</th>
-                <th>Discourse</th>
-                <th>USRs</th>
-                <th>Actions</th>
-                <th>Status</th>
+              <th>S.No</th>
+              <th>Discourse</th>
+              <th>USRs</th>
+              <th>Actions</th>
+              <th>Status</th>
             </tr>
 
             <tr>
-                <td>1</td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button><a href='http://localhost:3000/usrgenerate'>View</a></button>
-                    <button><a href='http://localhost:3000/usrgenerate'>Edit Discourse</a></button>
-                    <button>Delete</button>
-                </td>
-                <td>Approved</td>
+              <td>1</td>
+              <td></td>
+              <td></td>
+              <td>
+                <button class="but">
+                  <a href="http://localhost:3000/usrgenerate">
+                    <FaEye size="30px" color="black"></FaEye>
+                  </a>
+                </button>
+                <button class="but">
+                  <a href="http://localhost:3000/usrgenerate">
+                    <FaEdit size="30px" color="black"></FaEdit>
+                  </a>
+                </button>
+                <button>
+                  <a href="http://localhost:3000/usrgenerate">
+                    <FaTrash size="30px" color="black"></FaTrash>
+                  </a>
+                </button>
+              </td>
+              <td>Approved</td>
             </tr>
-        </table>
-    </div>
+          </table>
+        </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;
